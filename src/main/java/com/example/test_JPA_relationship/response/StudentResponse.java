@@ -13,5 +13,5 @@ public class StudentResponse {
     private String address;
     private String phone;
     private String email;
-    private List<CourseResponse> courseResponses;
+    //private List<CourseResponse> courseResponses;
 }

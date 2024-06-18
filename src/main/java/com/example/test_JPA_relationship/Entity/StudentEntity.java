@@ -39,6 +39,5 @@ public class StudentEntity {
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentEntity", fetch = FetchType.LAZY)
-    @JsonManagedReference
     private List<CourseEntity> courseEntities;
 }

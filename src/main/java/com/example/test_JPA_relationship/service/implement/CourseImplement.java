@@ -1,11 +1,12 @@
-package com.example.test_JPA_relationship.service;
+package com.example.test_JPA_relationship.service.implement;
 
 import com.example.test_JPA_relationship.repository.CourseRepository;
+import com.example.test_JPA_relationship.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CourseImplement implements CourseService{
+public class CourseImplement implements CourseService {
     @Autowired
     private CourseRepository courseRepository;
 

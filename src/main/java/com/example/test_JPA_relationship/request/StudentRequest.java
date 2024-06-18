@@ -12,5 +12,5 @@ public class StudentRequest {
     private String address;
     private String phone;
     private String email;
-    private List<CourseRequest> courseRequests;
+    //private List<CourseRequest> courseRequests;
 }

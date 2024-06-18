@@ -21,11 +21,8 @@ public class CourseEntity {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "student_id")
-    private Long studentId;
-
-    @ManyToOne
-    @JoinColumn(name = "student_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id", foreignKey = @ForeignKey(name = "FKs8aqr642dup1oio7xa51t5vw5"))
     @JsonIgnore
     private StudentEntity studentEntity;
 }

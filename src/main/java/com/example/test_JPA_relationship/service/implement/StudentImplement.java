@@ -1,4 +1,4 @@
-package com.example.test_JPA_relationship.service;
+package com.example.test_JPA_relationship.service.implement;
 
 import com.example.test_JPA_relationship.Entity.CourseEntity;
 import com.example.test_JPA_relationship.Entity.StudentEntity;
@@ -6,6 +6,7 @@ import com.example.test_JPA_relationship.repository.StudentRepository;
 import com.example.test_JPA_relationship.request.StudentRequest;
 import com.example.test_JPA_relationship.response.CourseResponse;
 import com.example.test_JPA_relationship.response.StudentResponse;
+import com.example.test_JPA_relationship.service.StudentService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Service
-public class StudentImplement implements StudentService{
+public class StudentImplement implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
@@ -51,15 +52,15 @@ public class StudentImplement implements StudentService{
 //            studentEntity1.getCourseEntities().add(courseEntity);
 //        }
 
-        List<CourseEntity> courseEntities = studentRequest.getCourseRequests().stream().map(courseRequest -> {
-            CourseEntity courseEntity = new CourseEntity();
-            courseEntity.setTitle(courseRequest.getTitle());
-            courseEntity.setStudentEntity(studentEntity1);
-            return courseEntity;
-        }).collect(Collectors.toList());
+//        List<CourseEntity> courseEntities = studentRequest.getCourseRequests().stream().map(courseRequest -> {
+//            CourseEntity courseEntity = new CourseEntity();
+//            courseEntity.setTitle(courseRequest.getTitle());
+//            courseEntity.setStudentEntity(studentEntity1);
+//            return courseEntity;
+//        }).collect(Collectors.toList());
 
-        studentEntity1.setCourseEntities(courseEntities);
-        logger.info("New course entities set: " + courseEntities);
+        //studentEntity1.setCourseEntities(courseEntities);
+        //logger.info("New course entities set: " + courseEntities);
 
         StudentEntity studentEntity = studentRepository.save(studentEntity1);
         logger.info("Update student saved: " + studentEntity);
@@ -105,7 +106,7 @@ public class StudentImplement implements StudentService{
         studentResponse.setAddress(studentEntity.getAddress());
         studentResponse.setPhone(studentEntity.getPhone());
         studentResponse.setEmail(studentEntity.getEmail());
-        studentResponse.setCourseResponses(courseResponses);
+        //studentResponse.setCourseResponses(courseResponses);
 
         return studentResponse;
     }
